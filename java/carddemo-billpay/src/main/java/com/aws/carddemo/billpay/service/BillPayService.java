@@ -68,6 +68,16 @@ public class BillPayService {
     public BillPayResponse processPayment(String accountId, String confirm) {
         validateConfirmation(confirm);
 
+        if ("N".equalsIgnoreCase(confirm)) {
+            // Rule 4.3: user declined – cancel without account lookup
+            return new BillPayResponse(
+                    "Payment cancelled",
+                    null,
+                    null,
+                    null
+            );
+        }
+
         Account account = findAccountOrThrow(accountId);
         validatePositiveBalance(account);
 
@@ -75,16 +85,6 @@ public class BillPayService {
             // Rule 4.4: first submission – return balance for confirmation
             return new BillPayResponse(
                     "Confirm to make a bill payment",
-                    null,
-                    account.getCurrentBalance(),
-                    account.getCurrentBalance()
-            );
-        }
-
-        if ("N".equalsIgnoreCase(confirm)) {
-            // Rule 4.3: user declined
-            return new BillPayResponse(
-                    "Payment cancelled",
                     null,
                     account.getCurrentBalance(),
                     account.getCurrentBalance()

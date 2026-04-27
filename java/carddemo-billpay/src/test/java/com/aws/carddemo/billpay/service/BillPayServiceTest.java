@@ -110,25 +110,25 @@ class BillPayServiceTest {
         }
 
         @Test
-        @DisplayName("4.3: Confirmation N cancels payment")
+        @DisplayName("4.3: Confirmation N cancels payment without account lookup")
         void confirmNo() {
-            when(accountRepository.findById("00000000001")).thenReturn(Optional.of(testAccount));
-
             BillPayResponse resp = service.processPayment("00000000001", "N");
 
             assertThat(resp.message()).isEqualTo("Payment cancelled");
             assertThat(resp.transactionId()).isNull();
+            assertThat(resp.previousBalance()).isNull();
+            assertThat(resp.newBalance()).isNull();
+            verify(accountRepository, never()).findById(anyString());
             verify(transactionRepository, never()).save(any());
         }
 
         @Test
-        @DisplayName("4.3: Confirmation n (lowercase) also cancels")
+        @DisplayName("4.3: Confirmation n (lowercase) also cancels without account lookup")
         void confirmNoLowercase() {
-            when(accountRepository.findById("00000000001")).thenReturn(Optional.of(testAccount));
-
             BillPayResponse resp = service.processPayment("00000000001", "n");
 
             assertThat(resp.message()).isEqualTo("Payment cancelled");
+            verify(accountRepository, never()).findById(anyString());
         }
 
         @ParameterizedTest
