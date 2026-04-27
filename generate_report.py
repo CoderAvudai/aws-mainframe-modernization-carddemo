@@ -145,7 +145,7 @@ TABLE1_TOTAL = [
     "$33M",
     "~15 mo",
     "93 avg /\n100 peak",
-    "$14M",
+    "$15M",
     "4 avg /\n5 peak",
     "$10M",
     "53%",
@@ -154,7 +154,7 @@ TABLE1_TOTAL = [
 
 TABLE1_FOOTNOTE = (
     "Traditional Cost includes labor + proportionally allocated tool license ($11M). "
-    "Devin total = RDE Cost ($14M) + ACU Cost ($10M) = $24M. "
+    "Devin total = RDE Cost ($15M) + ACU Cost ($10M) = $25M. "
     "All values rounded to nearest $1M except where original rounding yielded $0M "
     "(shown to one decimal)."
 )
@@ -166,16 +166,16 @@ TABLE2_HEADERS = ["Metric", "Traditional", "Devin", "Net Delta"]
 
 TABLE2_DATA = [
     ["Peak Headcount",          "150 FTE",     "100 RDE",   "\u221250 (\u221233%)"],
-    ["Total Accenture COGS",    "$33M",        "$24M",      "\u2212$9M (\u221227%)"],
+    ["Total Accenture COGS",    "$33M",        "$25M",      "\u2212$8M (\u221224%)"],
     ["Fixed Bid Client Price",  "$41M",        "$43M",      "+$2M Premium (Accelerated TTV)"],
-    ["Accenture Profit Margin", "$8M (20%)",   "$19M (44%)","+$11M (+24 pp)"],
+    ["Accenture Profit Margin", "$8M (20%)",   "$18M (42%)","+$10M (+22 pp)"],
 ]
 
 TABLE2_FOOTNOTE = (
     "Traditional margin based on 20% gross margin over COGS. "
     "Devin Fixed Bid includes a $2M premium reflecting accelerated time-to-value "
-    "(24 mo \u2192 15 mo). The $2M TTV premium + $9M COGS reduction converts into "
-    "$11M additional margin at 44%."
+    "(24 mo \u2192 15 mo). The $2M TTV premium + $8M COGS reduction converts into "
+    "$10M additional margin at 42%."
 )
 
 # ---------------------------------------------------------------------------
